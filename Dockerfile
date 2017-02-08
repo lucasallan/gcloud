@@ -1,15 +1,9 @@
-FROM blacklabelops/centos
-MAINTAINER Steffen Bleul <blacklabelops@itbleul.de>
+FROM ubuntu:16.10
+MAINTAINER Lucas Amorim <lucasamorim@protonmail.com>
 
-# install dev tools
-RUN yum install -y \
-    wget \
-    tar \
-    unzip \
-    vi \
-    rsync \
-    cronie && \
-    yum clean all && rm -rf /var/cache/yum/*
+# install dev toolsA
+RUN apt-get update
+RUN apt-get install -y python openjdk-8-jre wget unzip
 
 # install gcloud
 ENV PATH /opt/google-cloud-sdk/bin:$PATH
